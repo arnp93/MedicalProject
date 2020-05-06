@@ -2,6 +2,7 @@
 using Fardin.DataLayer.Context;
 using Fardin.DataLayer.Entites;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,14 +19,15 @@ namespace Fardin.Core.Services
         {
             _db = context;
         }
-        public bool addPost(string username,int SectionId, string PostText, IFormFile PostImg)
+        public bool addPost(string postTitle, string username, int SectionId, string PostText, IFormFile PostImg)
         {
             AdminPanel admin = _db.admins.Where(a => a.Username == username).First();
             Post post = new Post()
             {
-                AdminPanelId=admin.AdminPanelId,
+                AdminPanelId = admin.AdminPanelId,
                 SectionId = SectionId,
-                PostText = PostText
+                PostText = PostText,
+                Title = postTitle
             };
             if (PostImg != null)
             {
@@ -38,7 +40,7 @@ namespace Fardin.Core.Services
                 }
             }
 
-          
+
             _db.Add(post);
             _db.SaveChanges();
             return true;
@@ -49,7 +51,7 @@ namespace Fardin.Core.Services
             PostDetail detail = new PostDetail()
             {
                 PostId = PostId,
-                TextResumen=postDetailsText
+                TextResumen = postDetailsText
             };
 
             if (image != null)
@@ -99,6 +101,62 @@ namespace Fardin.Core.Services
             _db.Add(detailsDescription);
             _db.SaveChanges();
 
+        }
+
+        public List<SelectListItem> GetPostsWithSectionIdForManageView(int sectionId)
+        {
+            return _db.posts.Where(p => p.SectionId == sectionId)
+                .Select(p => new SelectListItem()
+                {
+                    Text = p.Title,
+                    Value = p.PostId.ToString()
+                }).ToList();
+        }
+
+        public Post getPostWithId(int id)
+        {
+            return _db.posts.Find(id);
+        }
+
+        public Post[] GetPostsWithSectionIdArray(int sectionId)
+        {
+            return _db.posts.Where(p => p.SectionId == sectionId).ToArray();
+        }
+
+        public bool updatePost(int id, string postTitle, string username, int SectionId, string PostText, IFormFile PostImg)
+        {
+            AdminPanel admin = _db.admins.Where(a => a.Username == username).First();
+            Post post = _db.posts.Find(id);
+
+            post.AdminPanelId = admin.AdminPanelId;
+            post.SectionId = SectionId;
+            if (PostText != null)
+                post.PostText = PostText;
+            if (postTitle != null)
+                post.Title = postTitle;
+
+            if (PostImg != null)
+            {
+
+                string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/posts/image", post.PostImg);
+                if (imagePath != null)
+                {
+                    if (File.Exists(imagePath))
+                    {
+                        File.Delete(imagePath);
+                    }
+                }
+
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    PostImg.CopyTo(stream);
+                }
+            }
+
+
+            _db.Update(post);
+            _db.SaveChanges();
+            return true;
         }
     }
 }

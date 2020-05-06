@@ -18,8 +18,13 @@ using Fardin.Core.DTO;
 
 #line default
 #line hidden
+#line 3 "D:\Project\Fardin\Project Core\Fardin\Fardin\Areas\AdminPanel\Views\_ViewImports.cshtml"
+using Fardin.DataLayer.Entites;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8e0bbb8befb651195b8e1c291070a8660aa3e766", @"/Areas/AdminPanel/Views/Shared/Components/DetailsDescriptionComponent/DetailDescription.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e2c4f18e9d933afde7d8210ea6c328f4bd3c17a9", @"/Areas/AdminPanel/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7a878d11321884554a680f6fd1a2305422ce2ed5", @"/Areas/AdminPanel/Views/_ViewImports.cshtml")]
     public class Areas_AdminPanel_Views_Shared_Components_DetailsDescriptionComponent_DetailDescription : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Fardin.DataLayer.Entites.PostDetail>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("value", "0", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -57,7 +62,7 @@ using Fardin.Core.DTO;
             WriteLiteral("\r\n<div class=\"row mx-0 mb-5 postSection\">\r\n    <div class=\"col-xl-10 col-lg-9 col-md-8 mr-auto\">\r\n        ");
             EndContext();
             BeginContext(163, 1693, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e0bbb8befb651195b8e1c291070a8660aa3e7666132", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e0bbb8befb651195b8e1c291070a8660aa3e7666295", async() => {
                 BeginContext(225, 447, true);
                 WriteLiteral(@"
             <div class=""row align-items-center"">
@@ -72,7 +77,7 @@ using Fardin.Core.DTO;
                             ");
                 EndContext();
                 BeginContext(672, 36, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e0bbb8befb651195b8e1c291070a8660aa3e7666969", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e0bbb8befb651195b8e1c291070a8660aa3e7667132", async() => {
                     BeginContext(690, 9, true);
                     WriteLiteral("انتخاب...");
                     EndContext();
@@ -104,7 +109,7 @@ using Fardin.Core.DTO;
                 WriteLiteral("                                ");
                 EndContext();
                 BeginContext(839, 154, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e0bbb8befb651195b8e1c291070a8660aa3e7668857", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e0bbb8befb651195b8e1c291070a8660aa3e7669020", async() => {
                     BeginContext(882, 101, false);
 #line 19 "D:\Project\Fardin\Project Core\Fardin\Fardin\Areas\AdminPanel\Views\Shared\Components\DetailsDescriptionComponent\DetailDescription.cshtml"
                                                                      Write((postDetail.Title != null ? postDetail.Title.Substring(0, postDetail.Title.Length) : "متنی یافت نشد"));
@@ -158,7 +163,7 @@ using Fardin.Core.DTO;
                         ");
                 EndContext();
                 BeginContext(1478, 60, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8e0bbb8befb651195b8e1c291070a8660aa3e76611935", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8e0bbb8befb651195b8e1c291070a8660aa3e76612098", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

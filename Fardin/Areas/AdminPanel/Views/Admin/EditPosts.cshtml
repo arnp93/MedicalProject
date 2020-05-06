@@ -1,6 +1,9 @@
-﻿@model Post
+﻿@model AdminPanelViewModel
+@inject Fardin.Core.Services.IServices.IPostService postService
 @{
+    ViewData["Title"] = "EditPosts";
     Layout = "~/Views/Shared/_adminPanelLayout.cshtml";
+    List<Fardin.DataLayer.Entites.Post> posts = postService.GetPosts();
 }
 
 @section sidebar{
@@ -14,13 +17,13 @@
         </div>
         <ul class="navbar-nav flex-column text-right mt-2">
             <li class="nav-item pl-3">
-                <a href="#" class="nav-link text-white p-2 mb-2 current">
+                <a asp-action="Index" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 ">
                     <i class="fas fa-home text-light fa-lg ml-3"></i>اضافه کردن پست
                 </a>
             </li>
 
             <li class="nav-item pl-3">
-                <a asp-action="EditPosts" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 sidebar-link">
+                <a asp-action="EditPosts" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 sidebar-link current">
                     <i class="fas fa-user text-light fa-lg ml-3"></i>تغییر دادن پست ها
                 </a>
             </li>
@@ -69,6 +72,7 @@
         </ul>
     </div>
 }
+
 <style>
     .noneDisplay {
         display: none
@@ -87,7 +91,8 @@
 
 <div class="row mx-0 mb-5 postSection">
     <div class="col-xl-10 col-lg-9 col-md-8 mr-auto">
-        <form asp-action="Post" enctype="multipart/form-data">
+        <form asp-action="EditPosts" asp-controller="Admin" asp-area="AdminPanel" enctype="multipart/form-data">
+            <input type="hidden" id="ID"/>
             <div class="row align-items-center">
                 <!-- salary table -->
                 <div class="col-xl-6 col-12 mb-4 mb-xl-0 align-items-center">
@@ -96,17 +101,26 @@
 
                     <label>لطفا بخش مورد نظر را انتخاب کنید</label>
                     <div>
-                        <select name="SectionId" class="form-control">
+                        <select id="postSection" name="SectionId" class="form-control">
                             <option value="0">انتخاب...</option>
                             <option value="1">بخش اول</option>
                             <option value="2">بخش دوم</option>
                             <option value="3">بخش سوم</option>
                         </select>
                     </div>
-                    <label>تیتر مورد نظر را وارد کنید</label>
-                    <input type="text" asp-for="@Model.Title" class="form-control" />
-                    <label>متن مورد نظر را وارد کنید</label>
-                    <textarea type="text" asp-for="@Model.PostText" class="form-control" rows="8" ></textarea>
+                    <div id="sectionPosts" style="display:none">
+                        <label>لطفا پست مورد نظر را انتخاب کنید</label>
+
+                        <select id="postSelect" name="PostId" class="form-control">
+                        </select>
+                    </div>
+                    <div id="PostText" style="display:none">
+                        <textarea class="form-control" name="PostText" id="postTextArea" rows="8"></textarea>
+                        <label>تیتر مورد نظر را وارد کنید</label>
+                        <input type="text" id="postTitleText" name="Title" class="form-control" />
+                    </div>
+
+
 
                 </div>
                 <!-- end of salary table -->
@@ -119,7 +133,16 @@
                     </div>
 
                     <input type="file" asp-for="@Model.PostImg" id="PostImg" />
-
+                    <div id="newPostSectionDiv" style="display: none">
+                        <label>لطفا بخش جدید را انتخاب کنید</label>
+                        <div>
+                            <select id="newPostSection" name="newSectionId" class="form-control">
+                                <option value="1">بخش اول</option>
+                                <option value="2">بخش دوم</option>
+                                <option value="3">بخش سوم</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <!-- end of payments table -->
             </div>
@@ -170,5 +193,48 @@
         $("#image").change(function () {
             readURL2(this);
         });
+
+        $("#postSection").change(function () {
+            $("#newPostSectionDiv").css("display", "none");
+            $("#postSelect").empty();
+            $.getJSON("/adminpanel/admin/getPostsWithSectionId/" + $("#postSection :selected").val(),
+                function (data) {
+                    $.each(data,
+                        function () {
+                            $("#postTextArea").attr("placeholder", "");
+                            $("#postTitleText").attr("placeholder", "");
+                            $("#imgUp").attr("src","/images/no.image.png");
+                            $("#postSelect").append('<option value=' + this.value + '>' + this.text + '</option>');
+                            $("#sectionPosts").slideDown(2);
+
+                            
+                        });
+
+                });
+         
+        });
+
+            //#postSelect is in _SectionIdPostsPartialView
+            $("#postSelect").change(function () {
+                $.getJSON("/adminpanel/admin/getPostWithPostId/" + $("#postSelect :selected").val(),
+                    function (data) {
+                        console.log(data)
+                        $.each(data,
+                            function () {
+                                $("#ID").val(data.postId);
+                                $("#postTextArea").attr("placeholder", "");
+                                $("#postTitleText").attr("placeholder", "");
+                                $("#imgUp").attr("src", "/images/no.image.png");
+                                $("#postTextArea").attr("placeholder", data.postText);
+                                $("#postTitleText").attr("placeholder", data.title);
+                                $("#imgUp").attr("src", "/posts/image/" + data.postImg);
+                                $("#newPostSection").val(data.sectionId).attr("selected");
+                                $("#PostText").show(3);
+                                $("#newPostSectionDiv").show(3);
+                            });
+
+                    });
+        });
     </script>
 }
+

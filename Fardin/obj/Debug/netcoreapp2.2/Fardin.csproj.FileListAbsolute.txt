@@ -64,7 +64,9 @@ D:\Project\Fardin\Project Core\Fardin\Fardin\obj\Debug\netcoreapp2.2\Razor\Views
 D:\Project\Fardin\Project Core\Fardin\Fardin\bin\Debug\netcoreapp2.2\Fardin.Core.dll
 D:\Project\Fardin\Project Core\Fardin\Fardin\bin\Debug\netcoreapp2.2\Fardin.Core.pdb
 D:\Project\Fardin\Project Core\Fardin\Fardin\obj\Debug\netcoreapp2.2\Razor\Areas\AdminPanel\Views\_ViewImports.cshtml.g.cs
-D:\Project\Fardin\Project Core\Fardin\Fardin\obj\Debug\netcoreapp2.2\Razor\Areas\AdminPanel\Views\Shared\_PostDetailsFormSection.cshtml.g.cs
 D:\Project\Fardin\Project Core\Fardin\Fardin\obj\Debug\netcoreapp2.2\Razor\Areas\AdminPanel\Views\Admin\Login.cshtml.g.cs
 D:\Project\Fardin\Project Core\Fardin\Fardin\obj\Debug\netcoreapp2.2\Razor\Areas\AdminPanel\Views\Shared\Components\PostDetailsComponent\PostDetails.cshtml.g.cs
 D:\Project\Fardin\Project Core\Fardin\Fardin\obj\Debug\netcoreapp2.2\Razor\Areas\AdminPanel\Views\Shared\Components\DetailsDescriptionComponent\DetailDescription.cshtml.g.cs
+D:\Project\Fardin\Project Core\Fardin\Fardin\obj\Debug\netcoreapp2.2\Razor\Areas\AdminPanel\Views\Admin\EditPosts.cshtml.g.cs
+D:\Project\Fardin\Project Core\Fardin\Fardin\obj\Debug\netcoreapp2.2\Razor\Areas\AdminPanel\Views\Shared\_SectionIdPostsPartialView.cshtml.g.cs
+D:\Project\Fardin\Project Core\Fardin\Fardin\obj\Debug\netcoreapp2.2\Razor\Areas\AdminPanel\Views\Shared\_PostTextPartialView.cshtml.g.cs

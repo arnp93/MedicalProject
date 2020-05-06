@@ -349,7 +349,8 @@
       "Fardin.Core/1.0.0": {
         "dependencies": {
           "Fardin.DataLayer": "1.0.0",
-          "Microsoft.AspNetCore.Http.Features": "2.2.0"
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.2.0"
         },
         "runtime": {
           "Fardin.Core.dll": {}
