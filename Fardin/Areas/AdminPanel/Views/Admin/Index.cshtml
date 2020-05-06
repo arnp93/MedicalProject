@@ -1,0 +1,174 @@
+﻿@model AdminPanelViewModel
+@{
+    Layout = "~/Views/Shared/_adminPanelLayout.cshtml";
+}
+
+@section sidebar{
+    <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
+        <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">
+            ایده های
+            ناب
+        </a>
+        <div class="d-flex justify-content-center align-self-center bottom-border pb-2">
+            <img src="img/3.jpg" alt="" width="40px" height="30px" class="rounded-circle ml-2">
+            <a href="#" class="text-white">سلام فاطمه محسنی</a>
+        </div>
+        <ul class="navbar-nav flex-column text-right mt-2">
+            <li class="nav-item pl-3">
+                <a href="#" class="nav-link text-white p-2 mb-2 current">
+                    <i class="fas fa-home text-light fa-lg ml-3"></i>داشبورد
+                </a>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-user text-light fa-lg ml-3"></i>پروفایل
+                </a>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-envelope text-light fa-lg ml-3"></i>صندوق ورودی
+                </a>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-shopping-cart text-light fa-lg ml-3"></i>فروش
+                </a>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-chart-line text-light fa-lg ml-3"></i>تجزیه و تحلیل
+                </a>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-chart-bar text-light fa-lg ml-3"></i>نمودار
+                </a>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-table text-light fa-lg ml-3"></i>جدول ها
+                </a>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>تنظیمات
+                </a>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-file-alt text-light fa-lg ml-3"></i>مستندات
+                </a>
+            </li>
+        </ul>
+    </div>
+}
+<style>
+    .noneDisplay {
+        display: none
+    }
+
+    .postSection {
+        padding: 5px;
+        margin-top: 100px;
+        border-bottom: 1px dashed rgba(0, 0, 0, 0.46)
+    }
+
+    .form-control {
+        margin-top: 5px
+    }
+</style>
+
+<div class="row mx-0 mb-5 postSection">
+    <div class="col-xl-10 col-lg-9 col-md-8 mr-auto">
+        <form asp-action="Post" enctype="multipart/form-data">
+            <div class="row align-items-center">
+                <!-- salary table -->
+                <div class="col-xl-6 col-12 mb-4 mb-xl-0 align-items-center">
+
+                    <h3 class="text-muted text-center mb-3">تیتر پست</h3>
+
+                    <label>لطفا بخش مورد نظر را انتخاب کنید</label>
+                    <div>
+                        <select name="SectionId" class="form-control">
+                            <option value="0">انتخاب...</option>
+                            <option value="1">بخش اول</option>
+                            <option value="2">بخش دوم</option>
+                            <option value="3">بخش سوم</option>
+                        </select>
+                    </div>
+                    <label>تیتر مورد نظر را وارد کنید</label>
+                    <input type="text" asp-for="@Model.PostText" class="form-control" />
+
+
+                </div>
+                <!-- end of salary table -->
+                <!-- payments table -->
+                <div class="col-xl-6 col-12">
+                    <h3 class="text-muted text-center mb-3">انتخاب تصویر پست</h3>
+
+                    <div>
+                        <img src="~/images/no.image.png" id="imgUp" height="250" />
+                    </div>
+
+                    <input type="file" asp-for="@Model.PostImg" id="PostImg" />
+
+                </div>
+                <!-- end of payments table -->
+            </div>
+            <br />
+            <input type="submit" value="ثبت" class="btn btn-success" />
+        </form>
+    </div>
+</div>
+<br />
+<br />
+@await Component.InvokeAsync("PostDetailsComponent")
+<br />
+<br />
+@await Component.InvokeAsync("DetailsDescriptionComponent")
+
+@section scripts
+    {
+    <script>
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imgUp').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        function readURL2(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imgUp2').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#PostImg").change(function () {
+            readURL(this);
+        });
+
+        $("#image").change(function () {
+            readURL2(this);
+        });
+    </script>
+}

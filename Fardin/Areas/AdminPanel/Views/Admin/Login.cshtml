@@ -1,0 +1,51 @@
+﻿@model LoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/AdminPanelContents/css/bootstrap.css" rel="stylesheet" />
+    <style>
+        #formDiv{
+            width: 80%;
+            margin: auto;
+            margin-top: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.41);
+            padding: 15px
+        }
+        .field-validation-error{
+            color: red
+        }
+    </style>
+</head>
+<body>
+
+    <div id="formDiv">
+        <form asp-action="Login" asp-controller="Admin" asp-area="AdminPanel">
+            <fieldset>
+                <legend>Login</legend>
+                <hr />
+                <p class="field-validation-error">@ViewBag.loginError</p>
+                <label>Username</label>
+                <input type="text" asp-for="@Model.Username" class="form-control" />
+                <span asp-validation-for="@Model.Username"></span>
+                <br />
+                <label>Password</label>
+                <input type="password" asp-for="@Model.Password" class="form-control" />
+                <span asp-validation-for="@Model.Password"></span>
+                <br />
+                <input type="submit" value="Login" class="btn btn-success" />
+            </fieldset>
+            @*<span asp-validation-for=""></span>*@
+
+        </form>
+    </div>
+
+    <script src="~/AdminPanelContents/js/jquery-3.3.1.min.js"></script>
+</body>
+</html>

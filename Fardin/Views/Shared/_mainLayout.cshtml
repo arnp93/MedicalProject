@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Site Metas -->
+    <title>SMBarber - Responsive HTML5 Template</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="css/slick-theme.css" rel="stylesheet" />
+    <link href="css/slick.css" rel="stylesheet" />
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Colors CSS -->
+    <link rel="stylesheet" href="css/colors.css">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="css/versions.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet" href="css/custom.css">
+
+    <style>
+        .option:hover {
+            background-color: #c3bcbc !important;
+            animation-duration: 0.5s !important;
+        }
+
+        .navbar {
+            margin-bottom: 0px !important
+        }
+
+        .test:hover {
+            animation-duration: 1s !important;
+            transform: scale(1.30);
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px 10px black;
+            animation: ease-out;
+        }
+
+        .test {
+            box-shadow: 2px 2px 10px 2px black;
+            transition: all .1s ease-out;
+        }
+
+        .banner-header {
+            width: 30%;
+            background-color: #676153;
+            color: whitesmoke;
+            font: bold;
+            border-bottom: double white
+        }
+    </style>
+
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    
+
+
+
+
+
+    <!-- LOADER -->
+    <div id="preloader">
+        <div class="cube-wrapper">
+            <div class="cube-folding">
+                <span class="leaf1"></span>
+                <span class="leaf2"></span>
+                <span class="leaf3"></span>
+                <span class="leaf4"></span>
+            </div>
+            <span class="loading" data-name="Loading">Loading</span>
+        </div>
+    </div><!-- end loader -->
+    <div>
+        @RenderBody()
+    </div><!-- END LOADER -->
+
+ <!-- end wrapper -->
+
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <!-- ALL JS FILES -->
+    <script src="js/all.js"></script>
+    <script src="js/responsive-tabs.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/custom.js"></script>
+    <script src="~/js/slick.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $(document).ready(function(){
+            $('.your-class').slick({
+                centerMode: true,
+                centerPadding: '60px',
+                slidesToShow: 3,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+
+
+            $(".test").hover(function () {
+                $(this).parent().find("h1").css("background-color", "black").css("border-radius", "5px");
+
+            }, function () {
+                $(this).parent().find("h1").css("background-color", "#676153").css("border-radius", "0px");
+            });
+        });
+      
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+D:\Project\Fardin\Project Core\Fardin\Fardin.DataLayer\bin\Debug\netcoreapp2.2\Fardin.DataLayer.deps.json
+D:\Project\Fardin\Project Core\Fardin\Fardin.DataLayer\bin\Debug\netcoreapp2.2\Fardin.DataLayer.dll
+D:\Project\Fardin\Project Core\Fardin\Fardin.DataLayer\bin\Debug\netcoreapp2.2\Fardin.DataLayer.pdb
+D:\Project\Fardin\Project Core\Fardin\Fardin.DataLayer\obj\Debug\netcoreapp2.2\Fardin.DataLayer.AssemblyInfoInputs.cache
+D:\Project\Fardin\Project Core\Fardin\Fardin.DataLayer\obj\Debug\netcoreapp2.2\Fardin.DataLayer.AssemblyInfo.cs
+D:\Project\Fardin\Project Core\Fardin\Fardin.DataLayer\obj\Debug\netcoreapp2.2\Fardin.DataLayer.dll
+D:\Project\Fardin\Project Core\Fardin\Fardin.DataLayer\obj\Debug\netcoreapp2.2\Fardin.DataLayer.pdb
+D:\Project\Fardin\Project Core\Fardin\Fardin.DataLayer\obj\Debug\netcoreapp2.2\Fardin.DataLayer.csproj.CoreCompileInputs.cache
+D:\Project\Fardin\Project Core\Fardin\Fardin.DataLayer\obj\Debug\netcoreapp2.2\Fardin.DataLayer.csprojAssemblyReference.cache
