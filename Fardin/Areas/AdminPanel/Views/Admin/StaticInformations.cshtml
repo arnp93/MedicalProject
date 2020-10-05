@@ -1,0 +1,203 @@
+﻿@model Fardin.DataLayer.Entites.SiteStatic
+@{
+    ViewData["Title"] = "EditPosts";
+    Layout = "~/Views/Shared/_adminPanelLayout.cshtml";
+}
+
+@section sidebar{
+    <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
+        <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">
+            سایت پزشکی
+        </a>
+        <div class="d-flex justify-content-center align-self-center bottom-border pb-2">
+            <img src="img/3.jpg" alt="" width="40px" height="30px" class="rounded-circle ml-2">
+            <a href="#" class="text-white">سلام @User.Identity.Name</a>
+        </div>
+        <ul class="navbar-nav flex-column text-right mt-2">
+            <li class="nav-item pl-3">
+                <a asp-action="Index" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 ">
+                    <i class="fas fa-home text-light fa-lg ml-3"></i>اضافه کردن پست
+                </a>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a asp-action="EditPosts" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-file-alt text-light fa-lg ml-3"></i>تغییر دادن پست ها
+                </a>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a asp-action="DeletePost" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-table text-light fa-lg ml-3"></i>حذف کردن پست ها
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="ManageComments" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>مدیریت کامنت ها
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="showContactusContents" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link ">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>پیام های تماس با ما
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="SocialNetwork" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>مدیریت شبکه های اجتماعی
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="StaticInformations" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link current">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>مدیریت هدر و فوتر
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="About" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>متن درباره ما
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="ChangePassword" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>تغییر رمز عبور
+                </a>
+            </li>
+        </ul>
+    </div>
+}
+
+
+<div class="row mx-0 mb-5 postSection">
+    <div class="col-xl-10 col-lg-9 col-md-8 mr-auto">
+        <form asp-action="StaticInformations" asp-controller="Admin" asp-area="AdminPanel" enctype="multipart/form-data">
+            <div class="row align-items-center">
+                <!-- salary table -->
+                <div class="col-xl-6 col-12 mb-4 mb-xl-0 align-items-center">
+                    <br /><br /><br />
+                    @if (Model != null)
+                    {
+                        <input type="hidden" asp-for="SiteStaticId" value="@Model.SiteStaticId" />
+                    }
+                    <label>عکس هدر سایت:</label>
+                    <div>
+                        <div>
+                            @if (Model != null && Model.CoverImageName != null)
+                            {
+                                <img src="~/myImages/@Model.CoverImageName" id="imgUpcover" height="250" />
+
+                            }
+                            else
+                            {
+                                <img src="~/images/no.image.png" id="imgUpcover" height="250" />
+                            }
+
+                        </div>
+                        <div>
+                            <input type="file" name="coverpic" id="coverpic" />
+                        </div>
+                    </div>
+                    <hr />
+                    <label>عکس فوتر سایت:</label>
+                    <div>
+                        <div>
+                            @if (Model != null && Model.FooterImageName != null)
+                            {
+                                <img src="~/myImages/@Model.FooterImageName" id="imgUpfooter" height="250" />
+
+                            }
+                            else
+                            {
+                                <img src="~/images/no.image.png" id="imgUpfooter" height="250" />
+                            }
+                        </div>
+                        <div>
+                            <input type="file" name="footerpic" id="footerpic" />
+                        </div>
+                    </div>
+                    <hr />
+                    <label>مینی تیتر فوتر</label>
+                    <div>
+                        <div>
+                            <input type="text" asp-for="MiniTitle" class="form-control" />
+                        </div>
+                    </div>
+
+                    <label>تیتر فوتر</label>
+                    <div>
+                        <div>
+                            <input type="text" asp-for="Title" class="form-control" />
+                        </div>
+                    </div>
+
+                    <label>متن فوتر</label>
+                    <div>
+                        <textarea class="form-control" asp-for="Text" rows="8"></textarea>
+                    </div>
+                    <label>لطفا زبان مورد نظر را انتخاب کنید</label>
+                    <div>
+                        <p class="custom-hidden" id="language">@(Model != null && Model.LanguageTitle != null ? Model.LanguageTitle : "0")</p>
+                        <select id="lang" name="lang" class="form-control">
+                            <option value="0">انتخاب...</option>
+                            <option value="fa-IR">فارسی</option>
+                            <option value="en-US">انگلیسی</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <input type="submit" value="ثبت" class="btn btn-success" />
+        </form>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+
+        $(document).ready(function () {
+            var lang = $("p#language").text();
+            var selectedLang = $("option");
+            //alert($(selectedLang[0]).text())
+            for (var i = 0; i < selectedLang.length; i++) {
+                var test = $(selectedLang[i]).attr("value");
+                if (test === lang) {
+                    $(selectedLang[i]).attr("selected", "selected");
+                }
+            }
+        })
+        
+        function readURLcover(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imgUpcover').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#coverpic").change(function () {
+            readURLcover(this);
+        });
+
+        function readURLfooter(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imgUpfooter').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#footerpic").change(function () {
+            readURLfooter(this);
+        });
+
+    </script>
+}
+

@@ -1,0 +1,77 @@
+﻿@model Fardin.DataLayer.Entites.SocialNetwork
+@using System.Globalization
+<!-- Logo Sections -->
+@if (Model != null)
+{
+    <div id="logoSection">
+        @if (CultureInfo.CurrentCulture.Name == "en-US")
+        {
+            if (Model.InstagramEng != null)
+            {
+                <div id="instagramLogo">
+                    <a href="@Model.InstagramEng" target="_blank"><img src="~/SocialNetworksLogos/Instagram.png" /></a>
+                </div>
+            }
+            if (Model.FacebookEng != null)
+            {
+                <div id="facebookLogo">
+                    <a href="@Model.FacebookEng" target="_blank"><img src="~/SocialNetworksLogos/Facebook.png" /></a>
+                </div>
+            }
+            if (Model.TwitterEng != null)
+            {
+                <div id="twitterLogo">
+                    <a href="@Model.TwitterEng" target="_blank"><img src="~/SocialNetworksLogos/Twitter.png" /></a>
+                </div>
+            }
+            if (Model.TelegramEng != null)
+            {
+                <div id="twitterLogo">
+                    <a href="@Model.TelegramEng" target="_blank"><img src="~/SocialNetworksLogos/telegram.png" /></a>
+                </div>
+            }
+            if (Model.WhatsAppEng != null)
+            {
+                <div id="twitterLogo">
+                    <a href="@Model.WhatsAppEng" target="_blank"><img src="~/SocialNetworksLogos/WhatsApp.png" /></a>
+                </div>
+            }
+
+        }
+
+        @if (CultureInfo.CurrentCulture.Name == "fa-IR")
+        {
+            if (Model.InstagramFa != null)
+            {
+                <div id="instagramLogo">
+                    <a href="@Model.InstagramFa" target="_blank"><img src="~/SocialNetworksLogos/Instagram.png" /></a>
+                </div>
+            }
+            if (Model.FacebookFa != null)
+            {
+                <div id="facebookLogo">
+                    <a href="@Model.FacebookFa" target="_blank"><img src="~/SocialNetworksLogos/Facebook.png" /></a>
+                </div>
+            }
+            if (Model.TwitterFa != null)
+            {
+                <div id="twitterLogo">
+                    <a href="@Model.TwitterFa" target="_blank"><img src="~/SocialNetworksLogos/Twitter.png" /></a>
+                </div>
+            }
+            if (Model.TelegramFa != null)
+            {
+                <div id="twitterLogo">
+                    <a href="@Model.TelegramFa" target="_blank"><img src="~/SocialNetworksLogos/Twitter.png" /></a>
+                </div>
+            }
+            if (Model.WhatsAppFa != null)
+            {
+                <div id="twitterLogo">
+                    <a href="@Model.WhatsAppFa" target="_blank"><img src="~/SocialNetworksLogos/Twitter.png" /></a>
+                </div>
+            }
+
+        }
+    </div>
+}

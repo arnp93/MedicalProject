@@ -2,73 +2,6 @@
 @{
     Layout = "~/Views/Shared/_adminPanelLayout.cshtml";
 }
-
-@section sidebar{
-    <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
-        <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">
-            سایت پزشکی
-        </a>
-        <div class="d-flex justify-content-center align-self-center bottom-border pb-2">
-            <img src="img/3.jpg" alt="" width="40px" height="30px" class="rounded-circle ml-2">
-            <a href="#" class="text-white">سلام @User.Identity.Name</a>
-        </div>
-        <ul class="navbar-nav flex-column text-right mt-2">
-            <li class="nav-item pl-3">
-                <a href="#" class="nav-link text-white p-2 mb-2 current">
-                    <i class="fas fa-home text-light fa-lg ml-3"></i>اضافه کردن پست
-                </a>
-            </li>
-
-            <li class="nav-item pl-3">
-                <a asp-action="EditPosts" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 sidebar-link">
-                    <i class="fas fa-user text-light fa-lg ml-3"></i>تغییر دادن پست ها
-                </a>
-            </li>
-
-            <li class="nav-item pl-3">
-                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
-                    <i class="fas fa-envelope text-light fa-lg ml-3"></i>صندوق ورودی
-                </a>
-            </li>
-
-            <li class="nav-item pl-3">
-                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
-                    <i class="fas fa-shopping-cart text-light fa-lg ml-3"></i>فروش
-                </a>
-            </li>
-
-            <li class="nav-item pl-3">
-                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
-                    <i class="fas fa-chart-line text-light fa-lg ml-3"></i>تجزیه و تحلیل
-                </a>
-            </li>
-
-            <li class="nav-item pl-3">
-                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
-                    <i class="fas fa-chart-bar text-light fa-lg ml-3"></i>نمودار
-                </a>
-            </li>
-
-            <li class="nav-item pl-3">
-                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
-                    <i class="fas fa-table text-light fa-lg ml-3"></i>جدول ها
-                </a>
-            </li>
-
-            <li class="nav-item pl-3">
-                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
-                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>تنظیمات
-                </a>
-            </li>
-
-            <li class="nav-item pl-3">
-                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
-                    <i class="fas fa-file-alt text-light fa-lg ml-3"></i>مستندات
-                </a>
-            </li>
-        </ul>
-    </div>
-}
 <style>
     .noneDisplay {
         display: none
@@ -85,6 +18,67 @@
     }
 </style>
 
+@section sidebar{
+    <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
+        <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">
+            سایت پزشکی
+        </a>
+        <div class="d-flex justify-content-center align-self-center bottom-border pb-2">
+            <img src="img/3.jpg" alt="" width="40px" height="30px" class="rounded-circle ml-2">
+            <a href="#" class="text-white">سلام @User.Identity.Name</a>
+        </div>
+        <ul class="navbar-nav flex-column text-right mt-2">
+            <li class="nav-item pl-3">
+                <a asp-action="Index" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 current">
+                    <i class="fas fa-home text-light fa-lg ml-3"></i>اضافه کردن پست
+                </a>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a asp-action="EditPosts" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-file-alt text-light fa-lg ml-3"></i>تغییر دادن پست ها
+                </a>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a asp-action="DeletePost" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-table text-light fa-lg ml-3"></i>حذف کردن پست ها
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="ManageComments" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>مدیریت کامنت ها
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="showContactusContents" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link ">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>پیام های تماس با ما
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="SocialNetwork" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>مدیریت شبکه های اجتماعی
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="StaticInformations" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>مدیریت هدر و فوتر
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="About" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>متن درباره ما
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="ChangePassword" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>تغییر رمز عبور
+                </a>
+            </li>
+        </ul>
+    </div>
+}
+
 <div class="row mx-0 mb-5 postSection">
     <div class="col-xl-10 col-lg-9 col-md-8 mr-auto">
         <form asp-action="Post" enctype="multipart/form-data">
@@ -92,7 +86,7 @@
                 <!-- salary table -->
                 <div class="col-xl-6 col-12 mb-4 mb-xl-0 align-items-center">
 
-                    <h3 class="text-muted text-center mb-3">تیتر پست</h3>
+                    <h3 class="text-muted text-center mb-3">اضافه کردن پست های اصلی</h3>
 
                     <label>لطفا بخش مورد نظر را انتخاب کنید</label>
                     <div>
@@ -106,8 +100,13 @@
                     <label>تیتر مورد نظر را وارد کنید</label>
                     <input type="text" asp-for="@Model.Title" class="form-control" />
                     <label>متن مورد نظر را وارد کنید</label>
-                    <textarea type="text" asp-for="@Model.PostText" class="form-control" rows="8" ></textarea>
-
+                    <textarea type="text" asp-for="@Model.PostText" class="form-control" rows="8"></textarea>
+                    <label>لطفا زبان مورد نظر را انتخاب کنید</label>
+                    <select id="lang" name="lang" class="form-control">
+                        <option value="0">انتخاب...</option>
+                        <option value="fa-IR">فارسی</option>
+                        <option value="en-US">انگلیسی</option>
+                    </select>
                 </div>
                 <!-- end of salary table -->
                 <!-- payments table -->
@@ -120,6 +119,7 @@
 
                     <input type="file" asp-for="@Model.PostImg" id="PostImg" />
 
+
                 </div>
                 <!-- end of payments table -->
             </div>
@@ -130,14 +130,15 @@
 </div>
 <br />
 <br />
-@await Component.InvokeAsync("PostDetailsComponent")
+@await Component.InvokeAsync("SubPostComponent")
 <br />
 <br />
-@await Component.InvokeAsync("DetailsDescriptionComponent")
+@await Component.InvokeAsync("SubPostDescriptionComponent")
 
-@section scripts
-    {
+@section scripts{
     <script>
+        $("#descriptionText").show();
+
         function readURL(input) {
 
             if (input.files && input.files[0]) {
@@ -162,6 +163,18 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+        function readURL3(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imgUp3').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
 
         $("#PostImg").change(function () {
             readURL(this);
@@ -169,6 +182,43 @@
 
         $("#image").change(function () {
             readURL2(this);
+        });
+
+        $("#descriptionDetailImage").change(function () {
+            readURL3(this);
+        });
+
+        $("#PostId").change(function () {
+            $("#SubPosts").empty();
+            $("#detailsOfSubPosts").show();
+            $.getJSON("/AdminPanel/Admin/getSubPostWithSectionId/" + $("#PostId :selected").val(),
+                function (data) {
+                    console.log(data)
+                    $.each(data,
+                        function () {
+                            $("#SubPosts").append('<option value=' + this.value + '>' + this.text + '</option>');
+                            $("#TextResumen").attr("placeholder", data.textResumen);
+                            $("#imgUp2").attr("src", data.imageName);
+                        });
+                });
+        });
+
+
+        $("#SubPosts").change(function () {
+            alert("details")
+            $("#SubPostsText").attr("placeholder", "");
+            $("#TextResumen").attr("placeholder", "");
+            $("#imgUp2").attr("src", "/images/no.image.png");
+            $.getJSON("/AdminPanel/Admin/getSubPost/" + $("#SubPosts :selected").val(),
+                function (data) {
+                    console.log(data)
+                    $.each(data,
+                        function () {
+                            $("#SubPostsText").attr("placeholder", this.title);
+                            $("#TextResumen").attr("placeholder", this.textResumen);
+                            $("#imgUp2").attr("src", data.imageName);
+                        });
+                });
         });
     </script>
 }

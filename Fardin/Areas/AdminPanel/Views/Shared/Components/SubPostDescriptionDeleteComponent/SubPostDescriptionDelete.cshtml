@@ -1,0 +1,41 @@
+﻿@model IEnumerable<SubPostDescription>
+
+    <div class="row mx-0 mb-5" style="margin-top: 50px">
+        <div class="col-xl-10 col-lg-9 col-md-8 mr-auto table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="d-md-table-cell">پست ها</th>
+                        <th class="d-md-table-cell">عکس پست</th>
+                        <th class="d-md-table-cell">دستور</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="d-md-table-cell">@item.Text.Substring(0,5) <span>...</span></td>
+                            <td class="d-md-table-cell" style="text-align:center">
+                                @if (item.imageName != null)
+                                {
+                                    <img src="~/posts/SubPostsImage/@item.imageName" width="120" alt="image" />
+                                }
+                                else
+                                {
+                                    <img src="~/images/no.image.png" width="120" alt="image" />
+                                }
+
+                            </td>
+
+                            <td class="d-md-table-cell">
+                                <a href="/AdminPanel/Admin/deleteDescriptonOfDetail?id=@item.SubPostDescriptionId" class="btn btn-danger">حذف</a>
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>

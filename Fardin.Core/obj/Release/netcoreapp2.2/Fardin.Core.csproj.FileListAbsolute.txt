@@ -1,0 +1,12 @@
+D:\Project\Fardin\Project Core\Fardin\Fardin.Core\bin\Release\netcoreapp2.2\Fardin.Core.deps.json
+D:\Project\Fardin\Project Core\Fardin\Fardin.Core\bin\Release\netcoreapp2.2\Fardin.Core.dll
+D:\Project\Fardin\Project Core\Fardin\Fardin.Core\bin\Release\netcoreapp2.2\Fardin.Core.pdb
+D:\Project\Fardin\Project Core\Fardin\Fardin.Core\bin\Release\netcoreapp2.2\Fardin.DataLayer.dll
+D:\Project\Fardin\Project Core\Fardin\Fardin.Core\bin\Release\netcoreapp2.2\Fardin.DataLayer.pdb
+D:\Project\Fardin\Project Core\Fardin\Fardin.Core\obj\Release\netcoreapp2.2\Fardin.Core.csprojAssemblyReference.cache
+D:\Project\Fardin\Project Core\Fardin\Fardin.Core\obj\Release\netcoreapp2.2\Fardin.Core.AssemblyInfoInputs.cache
+D:\Project\Fardin\Project Core\Fardin\Fardin.Core\obj\Release\netcoreapp2.2\Fardin.Core.AssemblyInfo.cs
+D:\Project\Fardin\Project Core\Fardin\Fardin.Core\obj\Release\netcoreapp2.2\Fardin.Core.csproj.CoreCompileInputs.cache
+D:\Project\Fardin\Project Core\Fardin\Fardin.Core\obj\Release\netcoreapp2.2\Fardin.Core.csproj.CopyComplete
+D:\Project\Fardin\Project Core\Fardin\Fardin.Core\obj\Release\netcoreapp2.2\Fardin.Core.dll
+D:\Project\Fardin\Project Core\Fardin\Fardin.Core\obj\Release\netcoreapp2.2\Fardin.Core.pdb

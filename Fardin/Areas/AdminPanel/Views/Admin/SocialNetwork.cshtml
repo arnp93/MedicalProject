@@ -1,0 +1,167 @@
+﻿@model Fardin.DataLayer.Entites.SocialNetwork
+@{
+    ViewData["Title"] = "EditPosts";
+    Layout = "~/Views/Shared/_adminPanelLayout.cshtml";
+
+}
+
+@section sidebar{
+    <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
+        <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">
+            سایت پزشکی
+        </a>
+        <div class="d-flex justify-content-center align-self-center bottom-border pb-2">
+            <img src="img/3.jpg" alt="" width="40px" height="30px" class="rounded-circle ml-2">
+            <a href="#" class="text-white">سلام @User.Identity.Name</a>
+        </div>
+        <ul class="navbar-nav flex-column text-right mt-2">
+            <li class="nav-item pl-3">
+                <a asp-action="Index" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 ">
+                    <i class="fas fa-home text-light fa-lg ml-3"></i>اضافه کردن پست
+                </a>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a asp-action="EditPosts" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-file-alt text-light fa-lg ml-3"></i>تغییر دادن پست ها
+                </a>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a asp-action="DeletePost" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-table text-light fa-lg ml-3"></i>حذف کردن پست ها
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="ManageComments" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>مدیریت کامنت ها
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="showContactusContents" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link ">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>پیام های تماس با ما
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="SocialNetwork" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link current">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>مدیریت شبکه های اجتماعی
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="StaticInformations" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>مدیریت هدر و فوتر
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="About" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>متن درباره ما
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="ChangePassword" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>تغییر رمز عبور
+                </a>
+            </li>
+        </ul>
+    </div>
+}
+
+
+<div class="row mx-0 mb-5 postSection">
+    <div class="col-xl-10 col-lg-9 col-md-8 mr-auto">
+        <form asp-action="SocialNetwork" asp-controller="Admin" asp-area="AdminPanel" enctype="multipart/form-data">
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-12 mb-4 mb-xl-0 align-items-center">
+                    <br /><br /><br />
+                                <table class="table">
+                                    <tr>
+                                        <th> اینستاگرام انگلیسی</th>
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" asp-for="@Model.InstagramEng" value="@(Model != null && Model.InstagramEng != null ? Model.InstagramEng : "")" class="w-100" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>اینستاگرام فارسی</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" asp-for="@Model.InstagramFa" value="@(Model != null && Model.InstagramFa != null ? Model.InstagramFa : "")" class="w-100" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>فیسبوک انگلیسی</th>
+                                    </tr>
+                                    <tr>
+                                        <td> <input type="text" asp-for="@Model.FacebookEng" value="@(Model != null && Model.FacebookEng != null ? Model.FacebookEng : "")" class="w-100" /></td>
+                                    </tr>
+                                    <tr>
+                                        <th>فیسبوک فارسی</th>
+                                    </tr>
+                                    <tr>
+                                        <td> <input type="text" asp-for="@Model.FacebookFa" value="@(Model != null && Model.FacebookFa != null ? Model.FacebookFa : "")" class="w-100" /></td>
+                                    </tr>
+                                    <tr>
+                                        <th>توییتر انگلیسی</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" asp-for="@Model.TwitterEng" value="@(Model != null && Model.TwitterEng != null ? Model.TwitterEng : "")" class="w-100" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>توییتر فارسی</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" asp-for="@Model.TwitterFa" value="@(Model != null && Model.TwitterFa != null ? Model.TwitterFa : "")" class="w-100" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th> واتس اپ انگلیسی</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" asp-for="@Model.WhatsAppEng" value="@(Model != null && Model.WhatsAppEng != null ? Model.WhatsAppEng : "")" class="w-100" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>واتس اپ فارسی</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" asp-for="@Model.WhatsAppFa" value="@(Model != null && Model.WhatsAppFa != null ? Model.WhatsAppFa : "")" class="w-100" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>تلگرام انگلیسی</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" asp-for="@Model.TelegramEng" value="@(Model != null && Model.TelegramEng != null ? Model.TelegramEng : "")" class="w-100" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>تلگرام فارسی</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" asp-for="@Model.TelegramFa" value="@(Model != null && Model.TelegramFa != null ? Model.TelegramFa : "")" class="w-100" />
+                                        </td>
+                                    </tr>
+                                </table>
+
+
+                </div>
+            </div>
+            <br />
+            <input type="submit" value="ثبت" class="btn btn-success" />
+        </form>
+    </div>
+</div>
+<br />
+
+
+

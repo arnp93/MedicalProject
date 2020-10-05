@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Fardin.DataLayer.Entites.SubPost>
+
+<div class="row mx-0 mb-5 postSection">
+    <div class="col-xl-10 col-lg-9 col-md-8 mr-auto">
+        <form asp-action="detailOfPost" enctype="multipart/form-data">
+            <input type="hidden" name="SelectedDescriptionId" id="DescriptionId" />
+            <div class="row align-items-center">
+               
+                <div class="col-xl-6 col-12 mb-4 mb-xl-0 align-items-center">
+                    <h3 class="text-muted text-center mb-3">اضافه کردن محتویات به یک پیوند</h3>
+                    <label>لطفا بخش مورد نظر را انتخاب کنید</label>
+                    <div>
+                        <select id="SubPostId" name="SubPostId" class="form-control">
+                            <option value="0">انتخاب...</option>
+                            @foreach (var SubPost in Model)
+                            {
+
+                                <option value="@SubPost.SubPostId">@((SubPost.Title != null ? SubPost.Title.Substring(0, SubPost.Title.Length) : "متنی یافت نشد"))</option>
+
+                            }
+                        </select>
+                    </div>
+                    <textarea name="descriptionText" id="descriptionText" style="display: none" class="form-control" rows="10"></textarea>
+                    <label>لطفا زبان مورد نظر را انتخاب کنید</label>
+                    <select id="lang" name="lang" class="form-control">
+                        <option value="0">انتخاب...</option>
+                        <option value="fa-IR">فارسی</option>
+                        <option value="en-US">انگلیسی</option>
+                    </select>
+                </div>
+               
+                
+                <div class="col-xl-6 col-12">
+                    <h3 class="text-muted text-center mb-3">انتخاب تصویر </h3>
+                    <div>
+                        <img src="~/images/no.image.png" id="imgUp3" height="250" />
+                    </div>
+                    <input type="file" name="image" id="descriptionDetailImage" />
+
+                    <hr /><br />
+                    <h3>انتخاب گالری تصاویر</h3>
+                    <div>
+                        <input type="file" name="imageGallery" id="image-gallery" multiple />
+                    </div>
+                </div>
+               
+            </div>
+            <br />
+            <input type="submit" value="ثبت" class="btn btn-success" />
+        </form>
+    </div>
+</div>

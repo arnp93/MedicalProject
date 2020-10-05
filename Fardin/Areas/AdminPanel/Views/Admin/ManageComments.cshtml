@@ -1,0 +1,139 @@
+﻿@using Fardin.Core.DTO
+@model ManageCommentsViewModel
+<!-- Comments List -->
+
+@{
+    Layout = "~/Views/Shared/_adminPanelLayout.cshtml";
+}
+
+
+@section sidebar{
+    <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
+        <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">
+            سایت پزشکی
+        </a>
+        <div class="d-flex justify-content-center align-self-center bottom-border pb-2">
+            <img src="img/3.jpg" alt="" width="40px" height="30px" class="rounded-circle ml-2">
+            <a href="#" class="text-white">سلام @User.Identity.Name</a>
+        </div>
+        <ul class="navbar-nav flex-column text-right mt-2">
+            <li class="nav-item pl-3">
+                <a asp-action="Index" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 ">
+                    <i class="fas fa-home text-light fa-lg ml-3"></i>اضافه کردن پست
+                </a>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a asp-action="EditPosts" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-file-alt text-light fa-lg ml-3"></i>تغییر دادن پست ها
+                </a>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a asp-action="DeletePost" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-table text-light fa-lg ml-3"></i>حذف کردن پست ها
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="ManageComments" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link current">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>مدیریت کامنت ها
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="showContactusContents" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link ">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>پیام های تماس با ما
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="SocialNetwork" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>مدیریت شبکه های اجتماعی
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="StaticInformations" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>مدیریت هدر و فوتر
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="About" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>متن درباره ما
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="ChangePassword" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>تغییر رمز عبور
+                </a>
+            </li>
+        </ul>
+    </div>
+}
+
+@*TODO: PAGING*@
+<div class="container" style="margin-top: 50px">
+    <div class="row mx-0 mb-5 postSection">
+        <div class="col-xl-10 col-lg-9 col-md-8 mr-auto">
+            <table class="table table-bordered">
+                <tr>
+                    <th>متن کامنت</th>
+                    <th>تایید کامنت</th>
+                    <th>حذف کامنت</th>
+                    <th>تعیین زبان کامنت</th>
+                </tr>
+
+                @foreach (var comment in Model.comments)
+                {
+                    <tr>
+                        <td>
+                            @comment.Text
+                            <br />
+                            <small class="font-italic font-weight-lighter">
+                                نام کاربر: @comment.FullName
+                                <br />
+                                تاریخ دقیق: @comment.Date
+                                <br />
+                                ایمیل: @comment.Email
+                            </small>
+                        </td>
+                        <td>
+                            @if (!comment.isPublic)
+                            {
+                                <a href="/AdminPanel/Admin/ConfirmComment/@comment.CommentId" id="acceptcm" class="btn btn-success">تایید کامنت</a>
+                            }
+                            else
+                            {
+                                <a href="/AdminPanel/Admin/CancelConfirm/@comment.CommentId" class="btn btn-warning">لغو تایید</a>
+                            }
+                        </td>
+                        <td>
+                            <a href="/AdminPanel/Admin/DeleteComment/@comment.CommentId" class="btn btn-danger">حذف کامنت</a>
+                        </td>
+                        <td>
+                            <select id="lang" name="lang" class="form-control">
+                                <option value="0">انتخاب...</option>
+                                <option value="fa-IR">فارسی</option>
+                                <option value="en-US">انگلیسی</option>
+                            </select>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+@section scripts
+    {
+    <script>
+        var count = 0;
+        var firstURL;
+        $("#lang").change(function () {
+            if (count === 0) {
+                firstURL = $("#acceptcm").attr("href");
+                count++;
+            }
+            var newURL = firstURL + "?lang=" + $("#lang :selected").val()
+            $("#acceptcm").attr("href", newURL)
+        });
+
+    </script>
+}

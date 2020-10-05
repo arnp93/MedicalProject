@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <UserSecretsId>cbfb31ab-0bd1-4a3f-a16f-6a1e0a167b24</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,8 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\posts\postImageGallery\" />
     <Folder Include="wwwroot\posts\image\" />
-    <Folder Include="wwwroot\posts\PostDetailsImage\" />
+    <Folder Include="wwwroot\posts\SubPostsImage\" />
   </ItemGroup>
 
 </Project>

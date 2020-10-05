@@ -1,0 +1,56 @@
+﻿@model IEnumerable<DeleteSubPostViewModel>
+
+<div class="row mx-0 mb-5" style="margin-top: 50px">
+    <div class="col-xl-10 col-lg-9 col-md-8 mr-auto table-responsive">
+
+        <p class="alert alert-danger">در صورت حذف پست، تمام پست های زیرمجموعه نیز حذف خواهند شد!</p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="d-md-table-cell">پست ها</th>
+                    <th class="d-md-table-cell">زیر پست ها</th>
+                    <th class="d-md-table-cell">عکس پست</th>
+                    <th class="d-md-table-cell">دستور</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="d-md-table-cell">@item.Title</td>
+                        <td class="d-md-table-cell">
+                            <ul style="list-style:none">
+                                @if (item.detailDescriptions != null)
+                                {
+                                        <li>
+                                            @((item.detailDescriptions.Length <= 15 ? item.detailDescriptions.Substring(0, item.detailDescriptions.Length) : item.detailDescriptions.Substring(0, 15)))
+                                            <hr />
+                                        </li>
+                                }
+
+                            </ul>
+
+                        </td>
+                        <td class="d-md-table-cell" style="text-align:center">
+                            @if (item.Image != null)
+                            {
+                                <img src="~/posts/SubPostsImage/@item.Image" width="120" alt="Image" />
+                            }
+                            else
+                            {
+                                <img src="~/images/no.image.png" width="120" alt="Image" />
+                            }
+                        </td>
+
+                        <td class="d-md-table-cell">
+                            <a href="/AdminPanel/Admin/deleteSubPost?id=@item.id" class="btn btn-danger">حذف</a>
+                        </td>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -12,7 +12,7 @@ namespace Fardin.Core.DTO
         //Post Properties
         public string PostText { get; set; }
         public string PostImg { get; set; }
-        //PostDetails Properties
+        //SubPosts Properties
         public string PostTitle { get; set; }
         public string ImageName { get; set; }
         public string TextResumen { get; set; }
@@ -20,5 +20,11 @@ namespace Fardin.Core.DTO
         public string DetailsDescriptionText { get; set; }
         public string imageName { get; set; }
         public string videoName { get; set; }
+    }
+
+    public class ChangePasswordViewModel
+    {
+        public string OldPassword { get; set; }
+        public string NewPassword { get; set; }
     }
 }

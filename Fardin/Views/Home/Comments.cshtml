@@ -1,0 +1,94 @@
+﻿@using Fardin.Core.DTO;
+@model Fardin.Core.DTO.SubmitCommentViewModel
+
+@{
+    ViewData["Title"] = "Comments";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+
+    CommentWithPagingViewModel comments = ViewBag.CommentListModel as CommentWithPagingViewModel;
+}
+
+<div class="container-fluid">
+
+    <div class="row" style="margin-bottom: 100px">
+        @if (ViewBag.IsSuccess != null)
+        {
+            <div class="alert alert-success text-center">
+                <p class="help-block"> ثبت نظر با موفقیت انجام شد. نظر شما پس از تایید نمایش داده خواهد شد</p>
+            </div>
+        }
+        <div class="section-title row text-center" style="margin-top: 100px">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>Comments</h3>
+                <hr class="grd1">
+                <p style="color: black">Let us know your opinion</p>
+            </div>
+        </div><!-- end title -->
+        <div class="col-md-8 col-md-offset-2">
+            <div class="contact_form" style="background-color:rgba(0, 0, 0, 0.70)">
+                <div id="message"></div>
+                <form asp-action="Comments" asp-controller="Home" id="commentform" class="row" name="contactform" method="post">
+                    <fieldset class="row-fluid">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <input type="text" asp-for="FullName" class="form-control" placeholder="Full Name">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <input type="email" asp-for="Email" class="form-control" placeholder="Your Email">
+
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" asp-for="PhoneNumber" class="form-control" placeholder="Your Phone">
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <textarea class="form-control" asp-for="Text" rows="6" placeholder="Write here.."></textarea>
+                        </div>
+                        <div asp-validation-summary="All"></div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                            <input type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd btn-block subt" />
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div><!-- end col -->
+    </div><!-- end row -->
+    <hr />
+    <!-- Comments List -->
+    <div class="container" style="border: 2px solid rgba(0, 0, 0, 0.34); background-color: white; padding: 30px">
+        @if (comments.comments.Count < 1)
+        {
+            <h2>No comments have been received yet!</h2>
+        }
+        else
+        {
+            foreach (var comment in comments.comments)
+            {
+                if (comment.isPublic)
+                {
+                    <div class="row">
+                        <div class="col col-md-12">
+                            <img class="img-responsive" src="~/images/user.jpg" style="border-radius: 100%; max-width: 100px" />
+                            <span>@comment.FullName</span>
+                            <p style="color: black">@comment.Text</p>
+                        </div>
+                    </div>
+                }
+                <hr />
+            }
+        }
+
+    </div>
+
+ 
+    <!-- paging section -->
+    <div class="dataTables_paginate paging_simple_numbers" id="dtBasicExample_paginate" style="text-align: center">
+            <ul class="pagination">
+                @for (int i = 0; i < comments.pageCount; i++)
+                {
+                    <li class="@((comments.currentPage == i ? "paginate_button page-item active" : "paginate_button page-item" ))">
+                        <a href="/Comments/@i" aria-controls="dtBasicExample" class="page-link">@(i + 1)</a>
+                    </li>
+                }
+            </ul>
+    </div><br /><br /><br /><br /><br />
+
+</div>

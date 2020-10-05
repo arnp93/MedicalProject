@@ -1,0 +1,128 @@
+﻿@model IEnumerable<DeletePostPageViewModel>
+@{
+    ViewData["Title"] = "DeletePost";
+    Layout = "~/Views/Shared/_adminPanelLayout.cshtml";
+}
+
+@section sidebar{
+    <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
+        <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">
+            سایت پزشکی
+        </a>
+        <div class="d-flex justify-content-center align-self-center bottom-border pb-2">
+            <img src="img/3.jpg" alt="" width="40px" height="30px" class="rounded-circle ml-2">
+            <a href="#" class="text-white">سلام @User.Identity.Name</a>
+        </div>
+        <ul class="navbar-nav flex-column text-right mt-2">
+            <li class="nav-item pl-3">
+                <a asp-action="Index" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 ">
+                    <i class="fas fa-home text-light fa-lg ml-3"></i>اضافه کردن پست
+                </a>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a asp-action="EditPosts" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-file-alt text-light fa-lg ml-3"></i>تغییر دادن پست ها
+                </a>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a asp-action="DeletePost" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 sidebar-link current">
+                    <i class="fas fa-table text-light fa-lg ml-3"></i>حذف کردن پست ها
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="ManageComments" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>مدیریت کامنت ها
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="showContactusContents" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link ">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>پیام های تماس با ما
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="SocialNetwork" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>مدیریت شبکه های اجتماعی
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="StaticInformations" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>مدیریت هدر و فوتر
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="About" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>متن درباره ما
+                </a>
+            </li>
+            <li class="nav-item pl-3">
+                <a asp-action="ChangePassword" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>تغییر رمز عبور
+                </a>
+            </li>
+        </ul>
+    </div>
+}
+<div class="row mx-0 mb-5" style="margin-top: 50px">
+    <div class="col-xl-10 col-lg-9 col-md-8 mr-auto table-responsive">
+
+        <p class="alert alert-danger">در صورت حذف پست، تمام پست های زیرمجموعه نیز حذف خواهند شد!</p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="d-md-table-cell">پست ها</th>
+                    <th class="d-md-table-cell">زیر پست ها</th>
+                    <th class="d-md-table-cell">عکس پست</th>
+                    <th class="d-md-table-cell">دستور</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="d-md-table-cell">@item.postTitle</td>
+                        <td class="d-md-table-cell">
+                            <ul style="list-style:none">
+                                @foreach (var detail in item.SubPostTitles)
+                                {
+                                    <li>
+                                        @detail
+                                        <hr />
+                                    </li>
+
+                                }
+                            </ul>
+
+                        </td>
+                        <td class="d-md-table-cell" style="text-align:center">
+                            @if (item.postImage != null)
+                            {
+                                <img src="~/posts/image/@item.postImage" width="120" alt="Image" />
+                            }
+                            else
+                            {
+                                <img src="~/images/no.image.png" width="120" alt="Image" />
+                            }
+
+                        </td>
+
+                        <td class="d-md-table-cell">
+                            <a href="/AdminPanel/Admin/DeleteOnePost?postId=@item.PostId" class="btn btn-danger">حذف</a>
+                        </td>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr />
+@await Component.InvokeAsync("SubPostDeleteComponent")
+<br />
+<hr />
+@await Component.InvokeAsync("SubPostDescriptionDeleteComponent")
+
+

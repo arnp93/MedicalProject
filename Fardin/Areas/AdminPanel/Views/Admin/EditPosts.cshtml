@@ -24,49 +24,43 @@
 
             <li class="nav-item pl-3">
                 <a asp-action="EditPosts" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 sidebar-link current">
-                    <i class="fas fa-user text-light fa-lg ml-3"></i>تغییر دادن پست ها
+                    <i class="fas fa-file-alt text-light fa-lg ml-3"></i>تغییر دادن پست ها
                 </a>
             </li>
 
             <li class="nav-item pl-3">
-                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
-                    <i class="fas fa-envelope text-light fa-lg ml-3"></i>صندوق ورودی
+                <a asp-action="DeletePost" asp-controller="Admin" asp-area="AdminPanel" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-table text-light fa-lg ml-3"></i>حذف کردن پست ها
                 </a>
             </li>
-
             <li class="nav-item pl-3">
-                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
-                    <i class="fas fa-shopping-cart text-light fa-lg ml-3"></i>فروش
+                <a asp-action="ManageComments" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>مدیریت کامنت ها
                 </a>
             </li>
-
             <li class="nav-item pl-3">
-                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
-                    <i class="fas fa-chart-line text-light fa-lg ml-3"></i>تجزیه و تحلیل
+                <a asp-action="showContactusContents" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link ">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>پیام های تماس با ما
                 </a>
             </li>
-
             <li class="nav-item pl-3">
-                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
-                    <i class="fas fa-chart-bar text-light fa-lg ml-3"></i>نمودار
+                <a asp-action="SocialNetwork" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>مدیریت شبکه های اجتماعی
                 </a>
             </li>
-
             <li class="nav-item pl-3">
-                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
-                    <i class="fas fa-table text-light fa-lg ml-3"></i>جدول ها
+                <a asp-action="StaticInformations" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>مدیریت هدر و فوتر
                 </a>
             </li>
-
             <li class="nav-item pl-3">
-                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
-                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>تنظیمات
+                <a asp-action="About" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>متن درباره ما
                 </a>
             </li>
-
             <li class="nav-item pl-3">
-                <a href="#" class="nav-link text-white p-2 mb-2 sidebar-link">
-                    <i class="fas fa-file-alt text-light fa-lg ml-3"></i>مستندات
+                <a asp-action="ChangePassword" asp-controller="Admin" class="nav-link text-white p-2 mb-2 sidebar-link">
+                    <i class="fas fa-wrench text-light fa-lg ml-3"></i>تغییر رمز عبور
                 </a>
             </li>
         </ul>
@@ -92,7 +86,7 @@
 <div class="row mx-0 mb-5 postSection">
     <div class="col-xl-10 col-lg-9 col-md-8 mr-auto">
         <form asp-action="EditPosts" asp-controller="Admin" asp-area="AdminPanel" enctype="multipart/form-data">
-            <input type="hidden" id="ID"/>
+            <input type="hidden" id="ID" />
             <div class="row align-items-center">
                 <!-- salary table -->
                 <div class="col-xl-6 col-12 mb-4 mb-xl-0 align-items-center">
@@ -107,11 +101,13 @@
                             <option value="2">بخش دوم</option>
                             <option value="3">بخش سوم</option>
                         </select>
+                        
                     </div>
                     <div id="sectionPosts" style="display:none">
                         <label>لطفا پست مورد نظر را انتخاب کنید</label>
 
                         <select id="postSelect" name="PostId" class="form-control">
+                            <option value="0">انتخاب...</option>
                         </select>
                     </div>
                     <div id="PostText" style="display:none">
@@ -119,7 +115,7 @@
                         <label>تیتر مورد نظر را وارد کنید</label>
                         <input type="text" id="postTitleText" name="Title" class="form-control" />
                     </div>
-
+                    
 
 
                 </div>
@@ -142,6 +138,14 @@
                                 <option value="3">بخش سوم</option>
                             </select>
                         </div>
+                        <div>
+                            <label>لطفا زبان مورد نظر را انتخاب کنید</label>
+                            <select id="lang" name="lang" class="form-control">
+                                <option value="0">انتخاب...</option>
+                                <option value="fa-IR">فارسی</option>
+                                <option value="en-US">انگلیسی</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <!-- end of payments table -->
@@ -153,10 +157,10 @@
 </div>
 <br />
 <br />
-@await Component.InvokeAsync("PostDetailsComponent")
+@await Component.InvokeAsync("SubPostComponent")
 <br />
 <br />
-@await Component.InvokeAsync("DetailsDescriptionComponent")
+@await Component.InvokeAsync("SubPostDescriptionComponent")
 
 @section scripts
     {
@@ -185,56 +189,148 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+        function readURL3(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imgUp3').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
 
         $("#PostImg").change(function () {
             readURL(this);
         });
 
+
         $("#image").change(function () {
             readURL2(this);
         });
 
+        $("#descriptionDetailImage").change(function () {
+            readURL3(this);
+        });
+
+        //Post Edit START
         $("#postSection").change(function () {
             $("#newPostSectionDiv").css("display", "none");
             $("#postSelect").empty();
+            $("#postSelect").append('<option value="0" >انتخاب...</option>');
             $.getJSON("/adminpanel/admin/getPostsWithSectionId/" + $("#postSection :selected").val(),
                 function (data) {
                     $.each(data,
                         function () {
                             $("#postTextArea").attr("placeholder", "");
                             $("#postTitleText").attr("placeholder", "");
-                            $("#imgUp").attr("src","/images/no.image.png");
+                            $("#imgUp").attr("src", "/images/no.image.png");
                             $("#postSelect").append('<option value=' + this.value + '>' + this.text + '</option>');
                             $("#sectionPosts").slideDown(2);
+                        });
+                });
+        });
 
-                            
+
+        //#postSelect is in _SectionIdPostsPartialView
+        $("#postSelect").change(function () {
+            $.getJSON("/adminpanel/admin/getPostWithPostId/" + $("#postSelect :selected").val(),
+                function (data) {
+                    console.log(data)
+                    $.each(data,
+                        function () {
+                            $("#ID").val(data.postId);
+                            $("#postTextArea").attr("placeholder", "");
+                            $("#postTitleText").attr("placeholder", "");
+                            $("#imgUp").attr("src", "/images/no.image.png");
+                            $("#postTextArea").attr("placeholder", data.postText);
+                            $("#postTitleText").attr("placeholder", data.title);
+                            if (data.postImg != null) {
+                                $("#imgUp").attr("src", "/posts/image/" + data.postImg);
+                            } else {
+                                $("#imgUp").attr("src", "/images/no.image.png");
+                            }
+
+                            $("#newPostSection").val(data.sectionId).attr("selected");
+                            $("#PostText").show(3);
+                            $("#newPostSectionDiv").show(3);
                         });
 
                 });
-         
+        });
+        //Post edit END
+
+        //subPost Edit START
+        $("#PostId").change(function () {
+            $("#SubPosts").empty();
+            $("#SubPosts").append('<option value="0" >انتخاب...</option>');
+            $("#SubPostsText").val("");
+            $("#TextResumen").val("");
+            $("#imgUp2").attr("src", "/images/no.image.png");
+            $.getJSON("/AdminPanel/Admin/getSubPostWithSectionId/" + $("#PostId :selected").val(),
+                function (data) {
+                    console.log(data)
+                    $.each(data,
+                        function () {
+                            $("#SubPosts").append('<option value=' + this.value + '>' + this.text + '</option>');
+                            $("#SubPostsDection").show();
+                            $("#TextResumen").attr("placeholder", data.textResumen);
+                            $("#imgUp2").attr("src", data.imageName);
+                        });
+                });
         });
 
-            //#postSelect is in _SectionIdPostsPartialView
-            $("#postSelect").change(function () {
-                $.getJSON("/adminpanel/admin/getPostWithPostId/" + $("#postSelect :selected").val(),
-                    function (data) {
-                        console.log(data)
-                        $.each(data,
-                            function () {
-                                $("#ID").val(data.postId);
-                                $("#postTextArea").attr("placeholder", "");
-                                $("#postTitleText").attr("placeholder", "");
-                                $("#imgUp").attr("src", "/images/no.image.png");
-                                $("#postTextArea").attr("placeholder", data.postText);
-                                $("#postTitleText").attr("placeholder", data.title);
-                                $("#imgUp").attr("src", "/posts/image/" + data.postImg);
-                                $("#newPostSection").val(data.sectionId).attr("selected");
-                                $("#PostText").show(3);
-                                $("#newPostSectionDiv").show(3);
-                            });
 
-                    });
+        $("#SubPosts").change(function () {
+            $("#detailId").val("");
+            $("#SubPostsText").val("");
+            $("#TextResumen").val("");
+            $("#imgUp2").attr("src", "/images/no.image.png");
+            $.getJSON("/AdminPanel/Admin/getSubPost/" + $("#SubPosts :selected").val(),
+                function (data) {
+                    console.log(data)
+                    $.each(data,
+                        function () {
+
+                            $("#detailId").val(data.subPostId);
+                            $("#detailId").attr("name", "SubPostId");
+                            $("#SubPostsText").val(data.title);
+                            $("#detailsOfSubPosts").show();
+                            $("#TextResumen").val(data.textResumen);
+                            if (data.imageName != null) {
+                                $("#imgUp2").attr("src", "/posts/SubPostsImage/" + data.imageName);
+                            }
+                        });
+                });
         });
+
+        //subPost Edit END
+
+
+        //subPost Description Edit START
+        $("#SubPostId").change(function () {
+            $("#DescriptionId").val("");
+            $("#Description").hide();
+            $("#descriptionText").val("");
+            $("#descriptionText").hide();
+            $("#imgUp3").attr("src", "/images/no.image.png");
+            //console.log("subTitle = " + SubPostTitle);
+            $.getJSON("/AdminPanel/Admin/getSubPostDescriptionBySubPostId/" + $("#SubPostId :selected").val(),
+                function (data) {
+                    console.log(data)
+                    $("#descriptionText").show();
+                    $("#descriptionText").val(data.text);
+                    $("#DescriptionId").val(data.subPostDescriptionId);
+                    $("#imgUp3").attr("src", "/posts/SubPostsImage/" + data.imageName);
+                });
+        });
+         //subPost Description Edit END
+
+
+
+
     </script>
 }
 
