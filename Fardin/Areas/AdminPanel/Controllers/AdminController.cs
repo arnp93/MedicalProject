@@ -88,7 +88,7 @@ namespace Fardin.Areas.AdminPanel
         #region Posting Section (Edit SubPost)
         public IActionResult Post(Post post,string lang, IFormFile PostImg)
         {
-            bool isSuccess = _postService.addPost(post.Title, User.Identity.Name, post.SectionId, post.PostText,lang, PostImg);
+            bool isSuccess = _postService.addPost(post.Title, User.Identity.Name, post.SectionId, post.PostText,lang,post.Hashtags, PostImg);
             if (isSuccess)
             {
                 return RedirectToAction("Index");

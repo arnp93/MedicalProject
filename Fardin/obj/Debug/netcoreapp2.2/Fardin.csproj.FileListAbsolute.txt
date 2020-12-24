@@ -76,7 +76,6 @@ D:\Project\Fardin\Project Core\Fardin\Fardin\obj\Debug\netcoreapp2.2\Fardin.Razo
 D:\Project\Fardin\Project Core\Fardin\Fardin\obj\Debug\netcoreapp2.2\Fardin.dll
 D:\Project\Fardin\Project Core\Fardin\Fardin\obj\Debug\netcoreapp2.2\Fardin.pdb
 D:\Project\Fardin\Project Core\Fardin\Fardin\bin\Debug\netcoreapp2.2\appsettings.json
-D:\Project\Fardin\Project Core\Fardin\Fardin\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
 D:\Project\Fardin\Project Core\Fardin\Fardin\bin\Debug\netcoreapp2.2\Fardin.deps.json
 D:\Project\Fardin\Project Core\Fardin\Fardin\bin\Debug\netcoreapp2.2\Fardin.runtimeconfig.json
 D:\Project\Fardin\Project Core\Fardin\Fardin\bin\Debug\netcoreapp2.2\Fardin.runtimeconfig.dev.json

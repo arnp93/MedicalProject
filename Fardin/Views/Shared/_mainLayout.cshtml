@@ -23,6 +23,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap" rel="stylesheet">
 
     <link href="~/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -49,15 +51,29 @@
 
     <link rel="stylesheet" href="~/css/navbar.css">
 
-  
+    @*<link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">*@
+
+
+
+
+
     <style>
+        .card2 {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%
+        }
+
         #myCarousel.carousel.slide {
-           margin: 0px auto;
+            margin: 0px auto;
             max-width: 60%;
         }
-        #image-gallery{
 
+        #image-gallery {
         }
+
         #content {
             margin: 6% 30px 10px 30px;
             border: 1px solid #7f7d7d;
@@ -65,9 +81,11 @@
             padding: 50px 10px 100px 10px;
             box-shadow: 5px 0px 20px #333
         }
+
         body {
             background-color: #cdcbcb;
-            overflow-x: hidden
+            overflow-x: hidden;
+            font-family: 'Roboto', sans-serif;
         }
 
         .option:hover {
@@ -120,7 +138,7 @@
             width: 30%;
             background-color: #676153;
             color: whitesmoke;
-            font: bold;
+            /*font: bold;*/
             border-bottom: double white
         }
 
@@ -154,13 +172,13 @@
         #mobilenav {
             display: none;
         }
-        
+
         @@media screen and (max-width: 390px) {
             ul .navbarcs li a {
                 font-size: xx-small
             }
         }
-       /* @@media screen and (max-width: 390px) {
+        /* @@media screen and (max-width: 390px) {
             #image-gallery {
                width: 100%
             }
@@ -173,10 +191,12 @@
             #desktopnav {
                 display: none
             }
+
             #myCarousel.carousel.slide {
                 margin: 0px auto;
                 min-width: 100%;
             }
+
             div#logoSection {
                 position: fixed;
                 top: 300px;
@@ -295,21 +315,21 @@
             });
 
 
-            $(".test").hover(function () {
-                $(this).parent().find("h1").css("background-color", "black").css({ "border-radius": "5px", "z-index": 2 });
+        //    $(".test").hover(function () {
+        //        $(this).parent().find("h1").css("background-color", "black").css({ "border-radius": "5px", "z-index": 2 });
 
-            }, function () {
-                $(this).parent().find("h1").css("background-color", "#676153").css({ "border-radius": "0px", "z-index": 0 });
-            });
-        });
+        //    }, function () {
+        //        $(this).parent().find("h1").css("background-color", "#676153").css({ "border-radius": "0px", "z-index": 0 });
+        //    });
+        //});
 
-        $(window).scroll(function () {
-            if ($(document).scrollTop() >= 10) {
-                $("nav.stroke").stop().animate({ paddingTop: 10, paddingBottom: 10 }, 1000);
-            } else if ($(document).scrollTop() <= 12) {
-                $("nav.stroke").stop().animate({ paddingTop: 50, paddingBottom: 50 }, 500);
-            }
-        });
+        //$(window).scroll(function () {
+        //    if ($(document).scrollTop() >= 10) {
+        //        $("nav.stroke").stop().animate({ paddingTop: 10, paddingBottom: 10 }, 1000);
+        //    } else if ($(document).scrollTop() <= 12) {
+        //        $("nav.stroke").stop().animate({ paddingTop: 50, paddingBottom: 50 }, 500);
+        //    }
+        //});
 
 
     </script>

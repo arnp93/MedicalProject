@@ -6,3 +6,4 @@ D:\Project\Fardin\Project Core\Fardin\Fardin.DataLayer\obj\Debug\netcoreapp2.2\F
 D:\Project\Fardin\Project Core\Fardin\Fardin.DataLayer\obj\Debug\netcoreapp2.2\Fardin.DataLayer.csproj.CoreCompileInputs.cache
 D:\Project\Fardin\Project Core\Fardin\Fardin.DataLayer\obj\Debug\netcoreapp2.2\Fardin.DataLayer.dll
 D:\Project\Fardin\Project Core\Fardin\Fardin.DataLayer\obj\Debug\netcoreapp2.2\Fardin.DataLayer.pdb
+D:\Project\Fardin\Project Core\Fardin\Fardin.DataLayer\obj\Debug\netcoreapp2.2\Fardin.DataLayer.csprojAssemblyReference.cache

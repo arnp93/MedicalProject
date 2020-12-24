@@ -8,7 +8,7 @@ namespace Fardin.Core.Services.IServices
 {
     public interface IPostService
     {
-        bool addPost(string postTitle, string username, int SectionId, string PostText, string lang, IFormFile PostImg);
+        bool addPost(string postTitle, string username, int SectionId, string PostText, string lang, string hashtags, IFormFile PostImg);
         bool updatePost(int id, string postTitle, string username, int SectionId, string lang, string PostText, IFormFile PostImg);
         void updateSubPost(SubPostEditViewModel SubPost, string lang);
         void updateSubPostDescription(int SubPostDescriptionId, string DescriptionText, string lang, IFormFile image);

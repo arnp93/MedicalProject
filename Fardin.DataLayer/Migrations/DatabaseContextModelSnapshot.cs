@@ -131,6 +131,8 @@ namespace Fardin.DataLayer.Migrations
 
                     b.Property<int>("AdminPanelId");
 
+                    b.Property<string>("Hashtags");
+
                     b.Property<string>("LanguageTitle");
 
                     b.Property<string>("PostImg");

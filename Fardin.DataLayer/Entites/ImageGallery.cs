@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace Fardin.DataLayer.Entites
 {
@@ -15,8 +13,6 @@ namespace Fardin.DataLayer.Entites
         #region Relations
         [ForeignKey("postId")]
         public virtual Post post { get; set; }
-        //[ForeignKey("subPostId")]
-        //public virtual SubPost SubPost{get; set;}
         #endregion
     }
 }

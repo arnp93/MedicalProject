@@ -5524,6 +5524,7 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
+          "targetAlias": "netcoreapp2.2",
           "projectReferences": {
             "D:\\Project\\Fardin\\Project Core\\Fardin\\Fardin.DataLayer\\Fardin.DataLayer.csproj": {
               "projectPath": "D:\\Project\\Fardin\\Project Core\\Fardin\\Fardin.DataLayer\\Fardin.DataLayer.csproj"
@@ -5539,6 +5540,7 @@
     },
     "frameworks": {
       "netcoreapp2.2": {
+        "targetAlias": "netcoreapp2.2",
         "dependencies": {
           "HtmlSanitizer": {
             "target": "Package",
@@ -5569,7 +5571,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

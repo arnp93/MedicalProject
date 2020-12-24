@@ -25,8 +25,9 @@ namespace Fardin.Controllers
         public IActionResult Index()
         {
             ViewBag.siteStatic = _postService.getSiteStaticInformation();
-            var test = PasswordHelper.EncodePasswordMd5("123");
-            return View(_postService.GetPosts());
+            //var test = PasswordHelper.EncodePasswordMd5("123");
+            var test = _postService.GetPosts();
+            return View(test);
         }
         [Route("aboutus")]
         public IActionResult About()

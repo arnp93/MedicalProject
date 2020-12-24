@@ -22,7 +22,7 @@ namespace Fardin.Core.Services
         {
             _db = context;
         }
-        public bool addPost(string postTitle, string username, int SectionId, string PostText, string lang, IFormFile PostImg)
+        public bool addPost(string postTitle, string username, int SectionId, string PostText, string lang, string hashtags, IFormFile PostImg)
         {
             AdminPanel admin = _db.admins.Where(a => a.Username == username).First();
             Post post = new Post()
@@ -31,7 +31,8 @@ namespace Fardin.Core.Services
                 SectionId = SectionId,
                 PostText = PostText,
                 Title = postTitle,
-                LanguageTitle = lang
+                LanguageTitle = lang,
+                Hashtags = hashtags
             };
             if (PostImg != null)
             {

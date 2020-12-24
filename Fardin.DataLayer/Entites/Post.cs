@@ -19,6 +19,7 @@ namespace Fardin.DataLayer.Entites
         public string PostImg { get; set; }
         public int AdminPanelId { get; set; }
         public string LanguageTitle { get; set; }
+        public string Hashtags { get; set; }
         #endregion
 
         #region Relations
