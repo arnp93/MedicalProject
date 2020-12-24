@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 
-
     <!-- Basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,8 +35,6 @@
     <link rel="shortcut icon" href="~/images/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="~/images/apple-touch-icon.png">
 
-
-
     <!-- Site CSS -->
     <link rel="stylesheet" href="~/style.css">
     <!-- Colors CSS -->
@@ -50,166 +47,13 @@
     <link rel="stylesheet" href="~/css/custom.css">
 
     <link rel="stylesheet" href="~/css/navbar.css">
-
-    @*<link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">*@
-
-
-
-
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/customCss/custom-css.css">
     <style>
-        .card2 {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            width: 100%
-        }
-
-        #myCarousel.carousel.slide {
-            margin: 0px auto;
-            max-width: 60%;
-        }
-
-        #image-gallery {
-        }
-
-        #content {
-            margin: 6% 30px 10px 30px;
-            border: 1px solid #7f7d7d;
-            background-color: white;
-            padding: 50px 10px 100px 10px;
-            box-shadow: 5px 0px 20px #333
-        }
-
-        body {
-            background-color: #cdcbcb;
-            overflow-x: hidden;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        .option:hover {
-            background-color: #c3bcbc !important;
-            animation-duration: 0.5s !important;
-        }
-
-        .navbar {
-            margin-bottom: 0px !important
-        }
-
-        .test:hover {
-            animation-duration: 1s !important;
-            transform: scale(1.30);
-            border-radius: 10px;
-            box-shadow: 5px 5px 15px 2px black;
-            animation: ease-out;
-            z-index: 2
-        }
-
-        .test {
-            box-shadow: 2px 2px 10px 2px black;
-            transition: all 1.2s ease-out;
-        }
-
-        ul.navbarcs li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        ul.navbarcs {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            /*overflow: hidden;*/
-            background-color: #333;
-            position: fixed;
-            width: 100%;
-            z-index: 7
-        }
-
-            ul.navbarcs li {
-                float: left;
-            }
-
-        .banner-header {
-            width: 30%;
-            background-color: #676153;
-            color: whitesmoke;
-            /*font: bold;*/
-            border-bottom: double white
-        }
-
-        .validation-summary-errors {
-            color: red
-        }
-
-        div#logoSection div img {
-            width: 40px;
-            height: 40px
-        }
-
-        div#logoSection {
-            position: fixed;
-            top: 400px;
-            z-index: 6
-        }
-
-            div#logoSection div {
-                margin-bottom: 10px
-            }
-
-        .post img:hover {
-            box-shadow: 5px 5px 10px #7f7d7d;
-            transform: scale(1.05);
-            animation-duration: 1s;
-            animation: ease-out;
-            transition: all 1.1s ease-out;
-        }
-
-        #mobilenav {
-            display: none;
-        }
-
-        @@media screen and (max-width: 390px) {
-            ul .navbarcs li a {
-                font-size: xx-small
-            }
-        }
-        /* @@media screen and (max-width: 390px) {
-            #image-gallery {
-               width: 100%
-            }
-        }*/
-        @@media screen and (max-width: 700px) {
-            #mobilenav {
-                display: block;
-            }
-
-            #desktopnav {
-                display: none
-            }
-
-            #myCarousel.carousel.slide {
-                margin: 0px auto;
-                min-width: 100%;
-            }
-
-            div#logoSection {
-                position: fixed;
-                top: 300px;
-                z-index: 6
-            }
+        .logo {
+            left: 10px !important
         }
     </style>
-
-
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
     <!-- mobile navbar -->
@@ -221,7 +65,7 @@
         <div class="menu">
             <div>
                 <div>
-                    <ul class="havij">
+                    <ul>
                         <li><a href="/">@Localizer["Home"]</a></li>
                         <li><a href="/contact-us">@Localizer["ContactUs"]</a></li>
                         <li><a href="/Comments">@Localizer["Comments"]</a></li>
@@ -238,6 +82,7 @@
     <section id="desktopnav">
         <nav class="stroke">
             <ul>
+                <li class="pull-left"><span>&nbsp;&nbsp;&nbsp;&nbsp;<img src="~/images/logo/logo-blue.jpeg" class="logo" width="70" /></span></li>
                 <li><a href="/">@Localizer["Home"]</a></li>
                 <li><a href="/contact-us">@Localizer["ContactUs"]</a></li>
                 <li><a href="/Comments">@Localizer["Comments"]</a></li>
@@ -265,7 +110,7 @@
     </div><!-- END LOADER -->
     <!-- end wrapper -->
 
-    <a href="#" id="scroll-to-top" style="padding-top: 5px" class="dmtop global-radius"><i class="fa">^</i></a>
+    <a href="#" id="scroll-to-top" style="padding-top: 5px" class="dmtop"><i class="fa">^</i></a>
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -313,23 +158,6 @@
                     }
                 ]
             });
-
-
-        //    $(".test").hover(function () {
-        //        $(this).parent().find("h1").css("background-color", "black").css({ "border-radius": "5px", "z-index": 2 });
-
-        //    }, function () {
-        //        $(this).parent().find("h1").css("background-color", "#676153").css({ "border-radius": "0px", "z-index": 0 });
-        //    });
-        //});
-
-        //$(window).scroll(function () {
-        //    if ($(document).scrollTop() >= 10) {
-        //        $("nav.stroke").stop().animate({ paddingTop: 10, paddingBottom: 10 }, 1000);
-        //    } else if ($(document).scrollTop() <= 12) {
-        //        $("nav.stroke").stop().animate({ paddingTop: 50, paddingBottom: 50 }, 500);
-        //    }
-        //});
 
 
     </script>

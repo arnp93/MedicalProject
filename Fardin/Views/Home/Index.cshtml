@@ -43,7 +43,13 @@
     }
 
     .hashtags {
-        color: blue;
+        padding-top: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        font-size: small;
+        border-radius: 10px;
+        background-color: #c6c3c3;
         cursor: pointer
     }
 </style>
@@ -87,7 +93,7 @@
                             </div>
                             <div class="col-md-4 content"></div>
                         }
-                        @if (Model.Where(p => p.SectionId == 1).Count() == 2)
+                        @if (Model.Count(p => p.SectionId == 1) == 2)
                         {
                             <div class="col-md-6 content">
                                 <div class="card" style="width: 100%;">
@@ -129,9 +135,9 @@
                                 </div>
                             </div>
                         }
-                        @if (Model.Where(p => p.SectionId == 1).Count() > 2)
+                        @if (Model.Count(p => p.SectionId == 1) > 2)
                         {
-                            foreach (var post in Model.TakeLast(3))
+                            foreach (var post in Model.Where(p => p.SectionId == 1).TakeLast(3))
                             {
                                 <div class="col-md-4 content">
                                     <div class="card" style="width: 100%;">
@@ -264,7 +270,6 @@
                             <a href="/aboutus">About</a>
                             <a href="/contact-us">Contact</a>
                         </p>
-                        <p class="footer-company-name">All Rights Reserved. &copy; 2020 | Design By : <a href="#">ARASH NP</a></p>
                     </div>
 
                 </div>
